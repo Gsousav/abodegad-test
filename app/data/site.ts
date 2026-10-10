@@ -49,14 +49,16 @@ export type Carta = {
 
 export const horarios: HorarioGroup[] = [
   {
-    rows: [
-      { label: "Lunes a Sábados", hours: "12:00 – 23:00" },
-      { label: "Domingos", hours: "12:00 – 18:00" },
-    ],
-  },
-  {
     title: "Desayunos",
     rows: [{ label: "Martes a Domingo", hours: "7:30 – 12:00" }],
+  },
+  {
+    title: "Almuerzo",
+    rows: [
+      { label: "Lunes y Martes", hours: "12:00 – 22:00" },
+      { label: "Miércoles a Sábado", hours: "12:00 – 23:00" },
+      { label: "Domingo", hours: "12:00 – 19:00" },
+    ],
   },
 ];
 

@@ -125,26 +125,29 @@ function buildOpeningHours() {
 
   for (const group of horarios) {
     for (const row of group.rows) {
-      if (row.label === "Lunes a Sábados") {
+      if (row.label === "Lunes y Martes" && group.title === "Almuerzo") {
         specs.push({
           "@type": "OpeningHoursSpecification",
-          dayOfWeek: [
-            "Monday",
-            "Tuesday",
-            "Wednesday",
-            "Thursday",
-            "Friday",
-            "Saturday",
-          ],
+          dayOfWeek: ["Monday", "Tuesday"],
+          opens: "12:00",
+          closes: "22:00",
+          description: "Almuerzo",
+        });
+      } else if (row.label === "Miércoles a Sábado" && group.title === "Almuerzo") {
+        specs.push({
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: ["Wednesday", "Thursday", "Friday", "Saturday"],
           opens: "12:00",
           closes: "23:00",
+          description: "Almuerzo",
         });
-      } else if (row.label === "Domingos") {
+      } else if (row.label === "Domingo" && group.title === "Almuerzo") {
         specs.push({
           "@type": "OpeningHoursSpecification",
           dayOfWeek: "Sunday",
           opens: "12:00",
-          closes: "18:00",
+          closes: "19:00",
+          description: "Almuerzo",
         });
       } else if (row.label === "Martes a Domingo" && group.title === "Desayunos") {
         specs.push({
